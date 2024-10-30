@@ -11,6 +11,12 @@ public class GithubKraken implements Runnable
         {
             threadArray[i] = new Thread(new GithubKraken());
             threadArray[i].start();
+            try {
+                threadArray[i].join();
+
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
