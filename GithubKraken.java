@@ -1,21 +1,28 @@
 public class GithubKraken implements Runnable
 {
+
+    long[] sumArray = new long[1000];
+    int count = 0;
     public static void main(String[] args)
     {
-        GithubKraken[] thread1000 = new GithubKraken[1000];
-        for(int i=0; i< thread1000.length; i++)
+        Thread[] threadArray = new Thread[1000];
+
+        for(int i=0; i< threadArray.length; i++)
         {
-            thread1000[i] = new GithubKraken();
+            threadArray[i] = new Thread(new GithubKraken());
+            threadArray[i].start();
         }
     }
 
     @Override
     public void run() {
-        int sum =0;
+        long sum =0;
         for(int i=1; i<=1000000; i++)
         {
             sum += i;
         }
         System.out.println(sum);
+        sumArray[count] = sum;
+        count++;
     }
 }
