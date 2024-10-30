@@ -1,7 +1,7 @@
 public class GithubKraken implements Runnable
 {
 
-    long[] sumArray = new long[1000];
+    static long[] sumArray = new long[1000];
     int count = 0;
     public static void main(String[] args)
     {
@@ -18,6 +18,12 @@ public class GithubKraken implements Runnable
                 throw new RuntimeException(e);
             }
         }
+        long total = 0;
+        for(int i=0; i<sumArray.length; i++)
+        {
+            total += sumArray[i];
+        }
+        System.out.println("Total is: " + total);
     }
 
     @Override
@@ -27,7 +33,6 @@ public class GithubKraken implements Runnable
         {
             sum += i;
         }
-        System.out.println(sum);
         sumArray[count] = sum;
         count++;
     }
