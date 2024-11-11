@@ -18,6 +18,7 @@ public class GithubKraken implements Runnable
                 throw new RuntimeException(e);
             }
         }
+        //checking if branch is real
         long total = 0;
         for(int i=0; i<sumArray.length; i++)
         {
