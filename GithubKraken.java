@@ -26,6 +26,7 @@ public class GithubKraken implements Runnable
         System.out.println("Total is: " + total);
     }
 
+    //checking up
     @Override
     public void run() {
         long sum =0;
